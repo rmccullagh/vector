@@ -1,0 +1,1 @@
+This is a simple dynamic array implementation that allows for dynamic types by using an array of discriminated union structs
