@@ -22,8 +22,10 @@ vector_t* vector_init()
 	vector_t* v = malloc(sizeof(vector_t));
 	
 	if(v == NULL) {
+		
 		fprintf(stdout, "%s\n", "vector_init: vector_t init memory allocation failure");
 		exit(EXIT_FAILURE);
+	
 	}
 
 	v->size = 0;
@@ -31,9 +33,12 @@ vector_t* vector_init()
 	v->data = malloc(v->capacity * sizeof(Var*));
 	
 	if(v->data == NULL) {
+	
 		fprintf(stdout, "%s\n", "vector_init: v->data memory allocation error");
 		exit(EXIT_FAILURE);
+	
 	}
+	
 	return v;		
 }
 
@@ -50,6 +55,7 @@ void vector_push_back(vector_t* v, Var* element)
 		v->data = realloc(v->data, v->capacity * sizeof(Var*));
 			
 		if(v->data == NULL) {
+			
 			fprintf(stdout, "%s \n", "vector_push_back: failed to resize array");
 			exit(EXIT_FAILURE);
 		}
@@ -58,8 +64,10 @@ void vector_push_back(vector_t* v, Var* element)
 		v->size++;	
 	
 	} else {
+
 		v->data[v->size] = element;
 		v->size++;
+
 	}
 }
 
@@ -81,10 +89,14 @@ size_t vector_size(vector_t* v)
 Var* vector_get(vector_t* v, size_t index)
 {
 	if(index < v->size) {
+		
 		return v->data[index];
+	
 	} else {
+	
 		fprintf(stdout, "vector_get: fatal error: undefined offset %zu\n", index);
 		exit(EXIT_FAILURE);
+	
 	}
 }
 
@@ -98,7 +110,9 @@ void vector_free(vector_t* v)
 	size_t i;
 	
 	for(i = 0; i < v->size; i++) {
+		
 		var_destroy(v->data[i]);
+	
 	}
 
 	free(v->data);
