@@ -1,1 +1,3 @@
-This is a simple dynamic array implementation that allows for dynamic types by using an array of discriminated union structs
+This is a simple dynamic array implementation that allows for dynamic types by using an array of discriminated union structs.
+
+To install you need to have Autoconf installed. Simply run, `autoreconf --install`, then execute `./configure`, then execute `make`
