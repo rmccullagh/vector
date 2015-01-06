@@ -46,8 +46,6 @@ void vector_push_back(vector_t* v, Var* element)
 {	
 	if(v->size == v->capacity) {
 	
-		fprintf(stderr, "%s %d\n", "[DEBUG]: resizing at size", v->size);
-
 		v->capacity *= 2;
 		v->data = realloc(v->data, v->capacity * sizeof(Var*));
 			
