@@ -88,7 +88,7 @@ Var* var_string(char* value)
 
                 } else {
 
-                        memcpy(var->val.str.sval, value, len);
+                        memcpy(var->val.str.sval, value, len + 1);
                         return var;
 
                 }
